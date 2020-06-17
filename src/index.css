@@ -1,0 +1,35 @@
+@font-face {
+  font-family: HKGrotesk;
+  src: url(./fonts/HKGrotesk/HKGrotesk-Regular.ttf) format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: HKGrotesk;
+  src: url(./fonts/HKGrotesk/HKGrotesk-Bold.ttf) format('truetype');
+  font-weight: 600;
+}
+
+body {
+  margin: 0;
+  font-family: HKGrotesk;
+  font-weight: 600;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+ul li {
+  margin: 0 2em;
+  text-transform: uppercase;
+  font-size: 16px;
+}
