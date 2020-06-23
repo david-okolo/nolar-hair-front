@@ -1,15 +1,21 @@
 import React, { FC, useState } from 'react';
-import { Row, Col } from 'antd';
+import { Row, Col, Drawer, Badge } from 'antd';
 import { MenuOutlined, CloseOutlined } from '@ant-design/icons';
 import './Navbar.css';
 import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
 import { INavbarLink } from './navbar.interface';
-import { FullScreenMenu } from './FullScreenMenu/FullScreenMenu';
 import { IconSwitcher } from '../IconSwitcher/IconSwitcher';
+import { Link } from 'react-router-dom';
 
 export const Navbar: FC<{
   textColor: string,
   links: Array<INavbarLink>
+  linkColor?: {
+    active: string
+    normal: string
+  }
+  active?: number
+  cartCount?: number
 }> = (props) => {
 
   const { textColor, links } = props;
@@ -19,11 +25,72 @@ export const Navbar: FC<{
 
 
   return (
-    <>
-    {!xl && menuOpen && <FullScreenMenu
-      links={links}
-      backgroundColor='black'
-    ></FullScreenMenu>}
+    <div style={{
+      zIndex: 99
+    }}>
+    {!xl && menuOpen 
+      && <Drawer
+          bodyStyle={{
+            backgroundColor: '#111'
+          }}
+          closable={false}
+          width='80%'
+          placement='right'
+          visible={menuOpen}
+          onClose={() => {
+            setMenuOpen(false)
+          }}
+        >
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100vh',
+            width: '100%'
+          }}
+        >
+          <ul style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center'
+          }}>
+            {
+              links.map(item => {
+                return <li style={{
+                  cursor: 'pointer',
+                  margin: '1em 0',
+                  color: '#eee'
+                }}>
+                  <Link to={item.to} style={{color: '#eee'}}>
+                  {item.name}
+                  </Link>
+                </li>
+              })
+            }
+          </ul>
+
+          <ul style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center'
+          }}>
+            <li style={{
+                  cursor: 'pointer',
+                  margin: '1em 0',
+                  color: '#eee'}}
+                >
+                  <Badge count={props.cartCount}>
+                  <Link to='/store/cart' style={{color: '#eee'}}>
+                  cart
+                  </Link>
+                  </Badge>
+                </li>
+          </ul>
+          
+        </div>
+      </Drawer>}
     <Row 
       align='middle' 
       style={{
@@ -34,7 +101,8 @@ export const Navbar: FC<{
     >
       <Col span={!md ? 8 : 4} style={{
         fontSize: (xl && '36px') || (md && '30px') || '24px',
-        fontFamily: 'Cormorant Garamond',
+        fontFamily: 'Cormorant',
+        fontWeight: 300,
         lineHeight: 3,
         textAlign: 'center',
         ...(menuOpen ? {color: '#eee'} : {})
@@ -46,8 +114,17 @@ export const Navbar: FC<{
         >
           <ul>
             {
-              links.map(item => {
-                return <li>{item.name}</li>
+              links.map((item, index) => {
+                return <li key={index} style={{
+                  cursor: 'pointer',
+                  ...props.linkColor && {color: props.active === index ? props.linkColor.active : props.linkColor.normal}
+                }}>
+                  <Link to={item.to} style={{
+                  ...props.linkColor && {color: props.active === index ? props.linkColor.active : props.linkColor.normal}
+                }}>
+                  {item.name}
+                  </Link>
+                </li>
               })
             }
           </ul>
@@ -61,7 +138,20 @@ export const Navbar: FC<{
           >
            { xl ? 
            <ul>
-              <li>cart</li>
+              <li style={{
+                  cursor: 'pointer',
+                  ...props.linkColor && {color: props.active === 4 ? props.linkColor.active : props.linkColor.normal}
+                  }}>
+                    <Badge count={props.cartCount}>
+                    <Link 
+                      to='/store/cart' 
+                      style={{
+                      ...props.linkColor && {color: props.active === 4 ? props.linkColor.active : props.linkColor.normal}
+                    }}>
+                      cart
+                    </Link>
+                    </Badge>
+                </li>
             </ul>
             :
             <IconSwitcher
@@ -90,6 +180,6 @@ export const Navbar: FC<{
       </Col>
       }
     </Row>
-    </>
+    </div>
   )
 }
