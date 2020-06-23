@@ -1,0 +1,38 @@
+.parent {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+input, select {
+  border: none;
+  font-size: 16px;
+  height: 46px;
+  font-weight: 600;
+  -webkit-appearance: none;
+  background: transparent;
+  overflow: hidden;
+}
+
+option {
+  min-height: 48px;
+}
+
+:focus {
+  outline: none
+}
+
+input:-internal-autofill-selected {
+  background-color: transparent !important;
+}
+
+label {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+@media(max-width: 576px) {
+  input, select {
+    font-size: 12px;
+  }
+}
