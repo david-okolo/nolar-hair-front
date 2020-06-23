@@ -21,15 +21,43 @@ code {
     monospace;
 }
 
-ul {
-  display: flex;
+h2 {
+  font-family: 'Cormorant';
+  text-transform: capitalize;
   margin: 0;
   padding: 0;
-  list-style-type: none;
+  font-size: 64px;
+  line-height: 1;
 }
 
-ul li {
-  margin: 0 2em;
-  text-transform: uppercase;
+p {
+  margin: 0;
+  padding: 0;
   font-size: 16px;
+  line-height: 1.6;
+}
+
+a:hover {
+  border-bottom: 1px solid #4C273E;
+  text-decoration: none;
+}
+
+@media(max-width: 992px) {
+  h2 {
+    font-size: 48px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+}
+
+@media(max-width: 576px) {
+  h2 {
+    font-size: 36px;
+  }
+
+  input, select {
+    font-size: 12px;
+  }
 }

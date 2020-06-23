@@ -1,33 +1,26 @@
-import React from 'react';
+import React, { FC } from 'react';
 import './App.css';
-import { Navbar } from './components/Navbar/Navbar';
+import { Switch, Route } from 'react-router-dom';
+import Home from './Home';
+import { Store } from './components/Store/Store';
+import { CheckBooking } from './components/CheckBooking/CheckBooking';
 
-function App() {
 
-  const links = [
-    {
-      name: 'about',
-      to: '/about'
-    },
-    {
-      name: 'services',
-      to: '/services'
-    },
-    {
-      name: 'testimonals',
-      to: '/testimonials'
-    },
-    {
-      name: 'store',
-      to: '/store'
-    }
-  ]
+const App: FC = (props) => {
   return (
-    <Navbar
-      textColor='#666'
-      links={links}
-    ></Navbar>
-  );
+    <Switch>
+      <Route path='/booking'>
+        <CheckBooking></CheckBooking>
+      </Route>
+      <Route path='/store'>
+        <Store></Store>
+      </Route>
+      <Route path='/'>
+        <Home></Home>
+      </Route>
+    </Switch>
+  )
 }
+
 
 export default App;

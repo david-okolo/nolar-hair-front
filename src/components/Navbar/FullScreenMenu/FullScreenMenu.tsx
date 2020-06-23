@@ -31,6 +31,7 @@ export const FullScreenMenu: FC<{
         {
           links.map(item => {
             return <li style={{
+              cursor: 'pointer',
               margin: '1em 0',
               color: '#eee'
             }}>{item.name}</li>
