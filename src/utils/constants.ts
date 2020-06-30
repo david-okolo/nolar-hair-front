@@ -1,5 +1,5 @@
 export const backendUrl = 'https://nolarhair.com.ng/api';
-export const backendStaticUrl = 'https://nolarhair.com.ng'
+export const backendStaticUrl = 'https://nolarhair.com.ng';
 
 export const DEFAULT_HEADERS = {
   'Content-Type': 'application/json',
@@ -14,10 +14,6 @@ export const links = [
   {
     name: 'services',
     to: '/services'
-  },
-  {
-    name: 'testimonals',
-    to: '/testimonials'
   },
   {
     name: 'store',

@@ -1,18 +1,10 @@
 import React from 'react';
 import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
 
-import { ImageGrid } from './components/ImageGrid/ImageGrid';
-import { services, whyNolar } from './AppText';
-
 // background images
 import bgOneLarge from './images/bg-1.jpg'
 import bgOneMedium from './images/bg-1-480.jpg'
 import bgTwo from './images/bg-2.jpg';
-
-// service images
-import barbing from './images/services/barbing.jpg';
-import consultation from './images/services/consultation.jpg';
-import wellness from './images/services/wellness.jpg'
 
 // store images
 import ehs from './images/products/store-1.jpg';
@@ -20,24 +12,18 @@ import hgp from './images/products/store-2.jpg';
 import hrp from './images/products/store-3.jpg';
 import cleanser from './images/products/store-4.jpg';
 
-// tile images
-import tileOne from './images/tiles/tile-1.jpg'
-import tileTwo from './images/tiles/tile-2.jpg'
-import tileThree from './images/tiles/tile-3.jpg'
-import tileFour from './images/tiles/tile-4.jpg'
-import { Article } from './components/Article/Article';
-
 
 import { Row, Col } from 'antd';
 import Text from 'antd/lib/typography/Text';
 import { Footer } from './components/Footer/Footer';
 import { Carousel } from './components/Carousel/Carousel';
 import { Navbar } from './components/Navbar/Navbar';
-import { CustomRow } from './components/CustomRow/CustomRow';
 import { MenuCard } from './components/MenuCard/MenuCard';
 import { MenuNav } from './components/MenuNav/MenuNav';
-import { BookingForm } from './components/Form/BookingForm';
 import { links } from './utils/constants';
+import { Services } from './components/Section/Services';
+import { About } from './components/Section/About';
+import { Booking } from './components/Section/Booking';
 
 function Home() {
 
@@ -47,36 +33,6 @@ function Home() {
     md: [bgOneMedium, bgTwo],
     lg: [bgOneLarge, bgTwo]
   }
-
-  const servicesImageSet = {
-    barbing: {
-      data: barbing,
-      alt: 'Man getting a haircut'
-    },
-    consultation: {
-      data: consultation,
-      alt: 'Photo of a hair salon chair'
-    },
-    wellness: {
-      data: wellness,
-      alt: 'beautiful woman with straight hair'
-    }
-  }
-
-  const serviceList = [
-    {
-      name: 'Hair Consultation / Hair Management',
-      image: servicesImageSet.consultation
-    },
-    {
-      name: 'Hair-Ducation (Hair Training)',
-      image: servicesImageSet.barbing
-    },
-    {
-      name: 'Hair Wellness',
-      image: servicesImageSet.wellness
-    }
-  ];
 
   const storeItems = [
     {
@@ -111,37 +67,8 @@ function Home() {
         active: 'brown'
       }}></Navbar>
     </Carousel>
-    <CustomRow 
-      columns={[
-      {
-        element: <ImageGrid images={[tileOne, tileTwo, tileThree, tileFour]}></ImageGrid>,
-        columnStyle: {}
-      },
-      {
-        element: <Article heading='Why Nolar?' paragraph={whyNolar}></Article>,
-        columnStyle: {}
-      }
-      ]}
-    />
-    <CustomRow columns={[
-      {
-        element: <Article heading='Services' paragraph={services}></Article>,
-        columnStyle: {}
-      },
-      {
-        columnStyle: {
-          backgroundColor: '#4C273E',
-          color: 'white'
-        },
-        element: <>
-          {serviceList.map((item, index) => {
-            return (
-              <MenuCard key={index} image={item.image} cardTitle={item.name}></MenuCard>
-            )
-          })}
-        </>
-      }
-    ]}/>
+    <About></About>
+    <Services></Services>
 
     <Row style={{
       minHeight: '480px',
@@ -174,8 +101,9 @@ function Home() {
           margin: '24px 0 0 0',
           display: 'flex',
           overflow: 'auto',
-          padding: '0 60px 20px 0'
+          padding: '0 60px 0 0'
         }}>
+          <div style={{padding: '0 0 120px 0', display: 'flex'}}>
           {storeItems.map((item, index) => {
               return (
                 <MenuCard 
@@ -192,21 +120,11 @@ function Home() {
                 ></MenuCard>
               )
             })}
+          </div>
         </div>
       </Col>
     </Row>
-    <CustomRow columns={[
-      {
-        element: <Article heading="Convinced, we bet you'd say that" paragraph='Why not book a consultation with our amazing Nolar cair service'></Article>,
-        columnStyle: {}
-      },
-      {
-        element: <BookingForm/>,
-        columnStyle: {}
-      }
-    ]}>
-
-    </CustomRow>
+    <Booking></Booking>
     <Footer></Footer>
     </>
   );

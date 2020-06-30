@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import './App.css';
+import './App.less';
 import { Switch, Route } from 'react-router-dom';
 import Home from './Home';
 import { Store } from './components/Store/Store';

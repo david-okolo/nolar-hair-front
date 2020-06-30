@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
-import './MenuNav.css';
+import './MenuNav.less';
 import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
 
 export const MenuNav: FC<{

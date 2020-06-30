@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import './general.form.css';
+import './general.form.less';
 import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
 import { Button } from 'antd';
 

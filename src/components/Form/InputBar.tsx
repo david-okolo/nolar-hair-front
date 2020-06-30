@@ -1,5 +1,5 @@
 import React, { FC, ReactElement } from 'react';
-import './general.form.css';
+import './general.form.less';
 
 export const InputBar: FC<{
   value: string

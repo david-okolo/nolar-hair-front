@@ -31,7 +31,7 @@ export const MenuCard: FC<{
     }}>
       <figure>
         <img src={image.data} alt={image.alt} width={width} height={height}/>
-        <figcaption>{cardTitle}</figcaption>
+        <figcaption style={{margin: '10px 0 0 0'}}>{cardTitle}</figcaption>
       </figure>
       {extra && <Row justify="space-between" align="middle">
         {extra.map((item, index) => {

@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 import { Row, Col, Drawer, Badge } from 'antd';
 import { MenuOutlined, CloseOutlined } from '@ant-design/icons';
-import './Navbar.css';
+import './Navbar.less';
 import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
 import { INavbarLink } from './navbar.interface';
 import { IconSwitcher } from '../IconSwitcher/IconSwitcher';
@@ -81,11 +81,9 @@ export const Navbar: FC<{
                   margin: '1em 0',
                   color: '#eee'}}
                 >
-                  <Badge count={props.cartCount}>
                   <Link to='/store/cart' style={{color: '#eee'}}>
                   cart
                   </Link>
-                  </Badge>
                 </li>
           </ul>
           

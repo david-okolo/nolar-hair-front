@@ -9,6 +9,8 @@ import { AiOutlineMail, AiOutlineArrowLeft } from 'react-icons/ai'
 import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint'
 import { emailRegex } from '../../utils/regex'
 import { backendUrl, DEFAULT_HEADERS } from '../../utils/constants'
+import { PaymentVerification } from './PaymentVerification'
+import { Checkout } from './Checkout/Checkout'
 
 export const Cart: FC<{
   clearCart: () => void
@@ -155,7 +157,7 @@ export const Cart: FC<{
                       fontWeight: 600
                     }}
                     onClick={() => {
-                      setVisible(true)
+                      push('/store/cart/checkout')
                     }}
                   >Checkout</Button>
                 </Col>
@@ -216,6 +218,12 @@ export const Cart: FC<{
           </Drawer>
         }
         </>
+      </Route>
+      <Route path={`${path}/checkout`}>
+        <Checkout selectedProducts={props.selectedProducts} price={calculateTotal(props.selectedProducts)}></Checkout>
+      </Route>
+      <Route path={`${path}/verify/:ref`}>
+        <PaymentVerification/>
       </Route>
     </Switch>
   )

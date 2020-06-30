@@ -1,6 +1,6 @@
 import React, { FC, forwardRef } from 'react';
 import { ICarouselIndicatorProps } from '../carousel.interface';
-import './CarouselIndicator.css'
+import './CarouselIndicator.less'
 
 /**
  * 

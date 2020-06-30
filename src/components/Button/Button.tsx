@@ -1,5 +1,5 @@
 import React, { FC, ReactElement } from 'react';
-import './Button.css'
+import './Button.less'
 
 export const Button: FC<{
   onClick: () => void

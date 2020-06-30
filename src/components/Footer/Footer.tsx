@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { Row, Col } from 'antd'
-import './Footer.css';
+import './Footer.less';
 import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
 import { SingleInputBar } from '../Form/SingleInputBar';
 

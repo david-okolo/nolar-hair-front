@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import './ImageGrid.css';
+import './ImageGrid.less';
 import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
 
 export const ImageGrid: FC<{

@@ -12,7 +12,7 @@ export const CustomRow: FC<{
   const { xs, md } = useBreakpoint();
 
   return (
-    <Row justify='center' align='middle' gutter={[{}, {xs: 64}]} style={{
+    <Row justify='center' align='middle' gutter={[{}, {xs: 0}]} style={{
       minHeight: '720px',
       ...md && {margin: '120px 0'}
     }}>
@@ -25,7 +25,7 @@ export const CustomRow: FC<{
               justifyContent: index === 1 ? 'flex-start' : 'center',
               overflow: 'auto',
               ...md && {minHeight: '720px', alignItems: 'center'},
-              ...xs && {minHeight: '360px', alignItems: 'center'},
+              ...xs && {minHeight: '480px', alignItems: 'center'},
             }}>{item.element}</Col>
             </Row>
           </Col>
