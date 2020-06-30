@@ -9,8 +9,8 @@ import barbing from '../../images/services/barbing.jpg';
 import consultation from '../../images/services/consultation.jpg';
 import wellness from '../../images/services/wellness.jpg'
 
-export const Services: FC<{}> = (props) => {
-  const { xs, sm, lg, xxl } = useBreakpoint();
+export const HomeServices: FC<{}> = (props) => {
+  const { xs, lg, xxl } = useBreakpoint();
 
   const xsColStyle: CSSProperties = {
     minHeight: '480px'

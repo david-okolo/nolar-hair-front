@@ -21,8 +21,8 @@ import { Navbar } from './components/Navbar/Navbar';
 import { MenuCard } from './components/MenuCard/MenuCard';
 import { MenuNav } from './components/MenuNav/MenuNav';
 import { links } from './utils/constants';
-import { Services } from './components/Section/Services';
-import { About } from './components/Section/About';
+import { HomeServices } from './components/Section/HomeServices';
+import { HomeAbout } from './components/Section/HomeAbout';
 import { Booking } from './components/Section/Booking';
 
 function Home() {
@@ -67,8 +67,8 @@ function Home() {
         active: 'brown'
       }}></Navbar>
     </Carousel>
-    <About></About>
-    <Services></Services>
+    <HomeAbout/>
+    <HomeServices/>
 
     <Row style={{
       minHeight: '480px',

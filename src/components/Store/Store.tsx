@@ -33,7 +33,7 @@ export const Store: FC = () => {
       <Navbar textColor='#20274D' links={links} linkColor={{
         normal: '#aaa',
         active: '#20274D'
-      }} cartCount={cart.length} active={3}/>
+      }} cartCount={cart.length} active={2}/>
       <Switch>
         <Route exact path={path}>
           <Display allProducts={state} addToCart={(product: Product) => {

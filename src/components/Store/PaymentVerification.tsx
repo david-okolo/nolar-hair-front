@@ -2,7 +2,6 @@ import React, { FC, useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { backendUrl, DEFAULT_HEADERS } from '../../utils/constants';
 import { Result, Button } from 'antd';
-import { ResultProps } from 'antd/lib/result';
 
 export const PaymentVerification: FC<{}> = (props) => {
 

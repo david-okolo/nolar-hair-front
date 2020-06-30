@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Row, Col, Divider, Button } from 'antd';
+import { Row, Col, Divider, Button, Skeleton } from 'antd';
 import { MenuCard } from '../MenuCard/MenuCard';
 import Text from 'antd/lib/typography/Text';
 import { StoreCategory, Product } from './store.interface';
@@ -14,7 +14,7 @@ const Display: FC<{
   const { push } = useHistory();
 
   return (
-    <div>
+    <div style={{minHeight: '480px'}}>
       { props.allProducts.map((category, index) => {
         return  (
         <Row key={category.id} justify='center' style={{

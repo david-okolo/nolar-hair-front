@@ -36,7 +36,7 @@ export const CheckBooking: FC<any> = (props) => {
     <Navbar textColor='#20274D' links={links} linkColor={{
       normal: '#aaa',
       active: '#20274D'
-    }} active={4}/>
+    }} active={3}/>
     <Row justify='center' style={{
       minHeight: '480px',
       color: '#20274D',

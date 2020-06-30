@@ -29,7 +29,7 @@ export const Payment: FC<{
       body: JSON.stringify(body)
     });
 
-    const { data: { paymentUrl, reference } } = await response.json();
+    const { data: { paymentUrl } } = await response.json();
 
     window.open(paymentUrl);
     // props.setReference(reference);

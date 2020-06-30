@@ -4,11 +4,11 @@ import { Row, Col } from 'antd';
 import { BookingForm } from '../Form/BookingForm';
 
 export const Booking: FC<{}> = (props) => {
-  const { xs, sm, lg, xxl } = useBreakpoint();
+  const { xs, lg, xxl } = useBreakpoint();
 
-  const xsColStyle: CSSProperties = {
-    minHeight: '360px'
-  }
+  // const xsColStyle: CSSProperties = {
+  //   minHeight: '360px'
+  // }
 
   const lgColStyle: CSSProperties = {
     minHeight: '720px'

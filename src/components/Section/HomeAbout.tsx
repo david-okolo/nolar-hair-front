@@ -10,8 +10,8 @@ import tileTwo from '../../images/tiles/tile-2.jpg'
 import tileThree from '../../images/tiles/tile-3.jpg'
 import tileFour from '../../images/tiles/tile-4.jpg'
 
-export const About: FC<{}> = (props) => {
-  const { xs, sm, lg, xxl } = useBreakpoint();
+export const HomeAbout: FC<{}> = (props) => {
+  const { xs, lg, xxl } = useBreakpoint();
 
   const xsColStyle: CSSProperties = {
     minHeight: '360px'
