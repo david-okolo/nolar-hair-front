@@ -40,7 +40,6 @@ export const About: FC<{}> = (props) => {
             >
               Restoration &<br /> Recovery at its best
             </h4>
-            ,
             <p
               style={{
                 textAlign: "left",
@@ -78,7 +77,6 @@ export const About: FC<{}> = (props) => {
             >
               Why Nolar?
             </h4>
-            ,
             <p
               style={{
                 textAlign: "left",
@@ -112,7 +110,6 @@ export const About: FC<{}> = (props) => {
             >
               Meet our <br /> trichiologist
             </h4>
-            ,
             <p
               style={{
                 textAlign: "left",

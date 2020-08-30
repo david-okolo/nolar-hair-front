@@ -46,7 +46,7 @@ export const Services: FC<{}> = (props) => {
             reverse
             article={
               <article>
-                <h4>Hair Plus</h4>
+                <h4>Nolar Plus</h4>
                 <p>
                   Nolar in addition to Hairloss Consultation & Treatment also
                   offers other hair services with competent and professionals in
@@ -54,7 +54,6 @@ export const Services: FC<{}> = (props) => {
                   Styling <br />
                   Braiding <br />
                   Barbing <br />
-                  Manicure <br />& Pedicure
                 </p>
               </article>
             }
