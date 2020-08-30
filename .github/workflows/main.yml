@@ -6,7 +6,7 @@ name: Deploy
 # events but only for the master branch
 on:
   push:
-    branches: [ master ]
+    branches: [master]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -17,19 +17,13 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js 12
-      uses: actions/setup-node@v1
-      with:
-        node-version: 12.x
-    - run: yarn --frozen-lockfile
-    - run: yarn build
-    - name: Deploy to Heroku
-      if: ${{ success() }}
-      uses: AkhileshNS/heroku-deploy@v3.2.6
-      with:
-        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-        heroku_email: david.okolo@icloud.com
-        heroku_app_name: nolar
-        buildpack: "https://github.com/mars/create-react-app-buildpack.git"
-        branch: master
+      - uses: actions/checkout@v2
+      - name: Deploy to Heroku
+        if: ${{ success() }}
+        uses: AkhileshNS/heroku-deploy@v3.2.6
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_email: david.okolo@icloud.com
+          heroku_app_name: nolar
+          buildpack: "https://github.com/mars/create-react-app-buildpack.git"
+          branch: master
