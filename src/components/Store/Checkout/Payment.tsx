@@ -16,7 +16,7 @@ export const Payment: FC<{
 
   const [email, setEmail] = useState("");
 
-  const getLink = async (email: string, name: string, selectedProducts: CartProduct[]) => {
+  const getLink = async (email: string, name: string, selectedProducts: CartProduct[], windowRef: any) => {
     const body = {
       email,
       name,
@@ -31,7 +31,7 @@ export const Payment: FC<{
 
     const { data: { paymentUrl } } = await response.json();
 
-    window.open(paymentUrl);
+    windowRef.location = (paymentUrl);
     // props.setReference(reference);
   }
 
@@ -62,7 +62,7 @@ export const Payment: FC<{
           <Col>
             <Button 
               onClick={() => {
-                getLink(email, name, props.selectedProducts);
+                getLink(email, name, props.selectedProducts, window.open());
               }}
               {...(!emailRegex.test(email) || props.selectedProducts.length === 0) && {disabled: true}}
               style={{fontWeight: 600}} type='primary'>Confirm</Button>

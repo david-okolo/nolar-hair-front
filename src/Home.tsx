@@ -1,131 +1,86 @@
-import React from 'react';
-import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
+import React, { useEffect, useRef } from "react";
 
-// background images
-import bgOneLarge from './images/bg-1.jpg'
-import bgOneMedium from './images/bg-1-480.jpg'
-import bgTwo from './images/bg-2.jpg';
+import { Footer } from "./components/Footer/Footer";
+import { Navbar } from "./components/Navbar/Navbar";
+import { Booking } from "./components/Section/Booking";
+import { Main } from "./components/Main/Main";
+import { Shop } from "./components/Shop/Shop";
+import { useDispatch } from "react-redux";
 
-// store images
-import ehs from './images/products/store-1.jpg';
-import hgp from './images/products/store-2.jpg'; 
-import hrp from './images/products/store-3.jpg';
-import cleanser from './images/products/store-4.jpg';
-
-
-import { Row, Col } from 'antd';
-import Text from 'antd/lib/typography/Text';
-import { Footer } from './components/Footer/Footer';
-import { Carousel } from './components/Carousel/Carousel';
-import { Navbar } from './components/Navbar/Navbar';
-import { MenuCard } from './components/MenuCard/MenuCard';
-import { MenuNav } from './components/MenuNav/MenuNav';
-import { links } from './utils/constants';
-import { HomeServices } from './components/Section/HomeServices';
-import { HomeAbout } from './components/Section/HomeAbout';
-import { Booking } from './components/Section/Booking';
+import { getAllProducts } from "./redux/product.slice";
+import { Header } from "./components/Header/Header";
+import "./Home.less";
 
 function Home() {
+  const dispatch = useDispatch();
 
-  const { xxl, md, xs } = useBreakpoint();
+  useEffect(() => {
+    dispatch(getAllProducts());
+  }, [dispatch]);
 
-  const bgSrcSet = {
-    md: [bgOneMedium, bgTwo],
-    lg: [bgOneLarge, bgTwo]
-  }
-
-  const storeItems = [
-    {
-      name: 'Exfoliating Hair Shampoo',
-      image: ehs,
-      price: '39.99 USD'
-    },
-    {
-      name: 'Hair Growth Pack',
-      image: hgp,
-      price: '39.99 USD'
-    },
-    {
-      name: 'Hair Restore Pack',
-      image: hrp,
-      price: '39.99 USD'
-    },
-    {
-      name: 'Cleanser',
-      image: cleanser,
-      price: '39.99 USD'
-    }
-  ]
-
-  
+  const bookingFormRef = useRef();
 
   return (
     <>
-    <Carousel images={xs ? bgSrcSet.md : bgSrcSet.lg}>
-      <Navbar links={links} textColor='#fff' linkColor={{
-        normal: '#fff',
-        active: 'brown'
-      }}></Navbar>
-    </Carousel>
-    <HomeAbout/>
-    <HomeServices/>
-
-    <Row style={{
-      minHeight: '480px',
-      backgroundColor: "#20274D",
-      color: 'white',
-      padding: '48px 0'
-    }}>
-      <Col style={{
-        ...xs && {
-          padding: '0 0 0 48px'
-        },
-        ...md && {
-          padding: '0 0 0 120px'
-        },
-        ...xxl && {
-          padding: '0 0 0 240px'
-        }
-      }}>
-        <h2 style={{color: 'white'}}>Shop Our Products</h2>
-        <MenuNav color='white' links={[
-          {
-            title: 'Featured'
-          },
-          {
-            title: 'Visit Store',
-            to: '/store'
-          }
-        ]}></MenuNav>
-        <div style={{
-          margin: '24px 0 0 0',
-          display: 'flex',
-          overflow: 'auto',
-          padding: '0 60px 0 0'
-        }}>
-          <div style={{padding: '0 0 120px 0', display: 'flex'}}>
-          {storeItems.map((item, index) => {
-              return (
-                <MenuCard 
-                  key={index}
-                  image={{
-                    data: item.image,
-                    alt: ''
-                  }}
-                  cardTitle={item.name}
-                  extra={[
-                  <Text style={{color: 'white', fontWeight: 300}}>{item.price}</Text>,
-                  <Text style={{color: 'white', fontWeight: 300, cursor: 'pointer'}}>Add To Cart</Text>
-                  ]}
-                ></MenuCard>
-              )
-            })}
+      <Navbar></Navbar>
+      <Header bookingFormRef={bookingFormRef}></Header>
+      <Main></Main>
+      <Shop></Shop>
+      <Booking formRef={bookingFormRef}></Booking>
+      <div className="o-faq__wrapper">
+        <div className="o-faq__container">
+          <h5>frequently asked questions</h5>
+          <div className="o-faq__items">
+            <div className="m-faq__item">
+              <h6>what is trichology?</h6>
+              <p>
+                Trichology is the scientific study of the hair, scalp disorders
+                and diseases. Many people are experiencing thining hair, and
+                hair loss and do not know who to turn to for help or solution.
+                It was the desire to find solutions to these problems that led
+                to the discovery of “Trichology” and still desiring to search
+                for more. The truth is despite your age, status or race, hair
+                loss is an issue that matters to most women. And when they lose
+                their hair, it affects their esteem.
+              </p>
+            </div>
+            <div className="m-faq__item">
+              <h6>How do hormones affect hairloss?</h6>
+              <p>
+                The role of hormones is to regulate cells and tissues activities
+                in different organs of the body like the liver, heart and skin.
+                Hormones are secreted by endocrine glands through the
+                bloodstream. A slight shift or imbalance of your hormones could
+                lead to changes in your body as a whole. At the same time, when
+                your hormones are in a balanced stage, you can enjoy good
+                health, healthy hair and a feeling of well-being. Therefore, one
+                of the things that causes hairless can be attributed to hormonal
+                imbalance.
+              </p>
+            </div>
+            <div className="m-faq__item">
+              <h6>When can I see a Trichologist?</h6>
+              <p>
+                The following are all signs that warrant a trip to a qualified
+                Trichologist.
+                <br />
+                Excessive hair loss
+                <br /> Hair breakage
+                <br /> A patch of hair loss <br />
+                Excessive facial hair for women <br />
+                Loss of eyebrows or eye lashes <br />
+                Hair thinning <br />
+                Patches of scale <br />
+                Excessive scalp itching <br />
+                If you are experiencing any of the above hair problems, it’s
+                time to seek the expertise of a Trichologist without further
+                hesitation. “A stitch on time saves nine.”
+              </p>
+            </div>
           </div>
         </div>
-      </Col>
-    </Row>
-    <Booking></Booking>
-    <Footer></Footer>
+      </div>
+      <Footer></Footer>
     </>
   );
 }

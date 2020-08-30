@@ -1,70 +1,73 @@
-import React, { FC, useState, useEffect } from 'react'
-import { Switch, Route, useRouteMatch } from 'react-router-dom'
-import rfdc from 'rfdc';
-import Display from './Display';
-import { Cart } from './Cart';
-import { Navbar } from '../Navbar/Navbar';
-import { links } from '../../utils/constants';
-import { Footer } from '../Footer/Footer';
-import { Product, StoreCategory, CartProduct } from './store.interface';
-import { getStoreList } from './store.service';
+import React, { FC, useEffect } from "react";
+import { Switch, Route, useRouteMatch } from "react-router-dom";
+import Display from "./Display";
+import { Cart } from "./Cart";
+import { Navbar } from "../Navbar/Navbar";
+import { links } from "../../utils/constants";
+import { Footer } from "../Footer/Footer";
+import { Product } from "./store.interface";
+import { useSelector, useDispatch } from "react-redux";
+import { ProductSelectors, getAllProducts } from "../../redux/product.slice";
+import { CartSelectors, CartActions } from "../../redux/cart.slice";
 
-const clone = rfdc();
-
+const { selectAllProducts } = ProductSelectors;
+const { selectCart } = CartSelectors;
+const {
+  addedToCart,
+  clearedCart,
+  changeItemCount,
+  removedFromCart,
+} = CartActions;
 
 export const Store: FC = () => {
   const { path } = useRouteMatch();
+  const dispatch = useDispatch();
 
-  const [ cart, setCart ] = useState<CartProduct[]>([])
-  const [ state, setState ] = useState<StoreCategory[]>([]);
+  const allProducts = useSelector(selectAllProducts);
+  const cart = useSelector(selectCart);
+  // const [cart, setCart] = useState<CartProduct[]>([]);
+  // const [state, setState] = useState<StoreCategory[]>([]);
 
-
-  // get store listings
   useEffect(() => {
-    getStoreList().then((response) => {
-      if (response.success) {
-        setState(response.data)
-      }
-    })
-  }, [])
+    if (allProducts.length < 1) {
+      dispatch(getAllProducts());
+    }
+  }, [dispatch, allProducts.length]);
 
   return (
     <>
-      <Navbar textColor='#20274D' links={links} linkColor={{
-        normal: '#aaa',
-        active: '#20274D'
-      }} cartCount={cart.length} active={2}/>
+      <Navbar alternate cartCount={cart.length} active={3} />
+      <div
+        style={{
+          paddingTop: "150px",
+        }}
+      ></div>
       <Switch>
         <Route exact path={path}>
-          <Display allProducts={state} addToCart={(product: Product) => {
-            setCart([...cart, {...product, count: 1, availableCount: product.count}])
-          }}></Display>
+          <Display
+            cart={cart}
+            allProducts={allProducts}
+            addToCart={(product: Product) => {
+              dispatch(addedToCart(product));
+            }}
+          ></Display>
         </Route>
         <Route path={`${path}/cart`}>
           <Cart
             clearCart={() => {
-              setCart([]);
+              dispatch(clearedCart());
             }}
-            selectedProducts={cart} 
+            selectedProducts={cart}
             handleRemove={(id: number) => {
-              const clonedCart = clone(cart);
-              setCart(clonedCart.filter((item) => {
-                if(item.id !== id) {
-                  return true
-                }
-
-                return false;
-              }))
+              dispatch(removedFromCart({ id }));
             }}
             changeCount={(value: number, index: number) => {
-              const clonedCart = clone(cart);
-              clonedCart[index].count = value;
-              setCart(clonedCart);
+              dispatch(changeItemCount({ id: index, value }));
             }}
-            />
+          />
         </Route>
       </Switch>
       <Footer></Footer>
     </>
-  )
-}
+  );
+};

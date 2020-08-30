@@ -1,183 +1,116 @@
-import React, { FC, useState } from 'react';
-import { Row, Col, Drawer, Badge } from 'antd';
-import { MenuOutlined, CloseOutlined } from '@ant-design/icons';
-import './Navbar.less';
-import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
-import { INavbarLink } from './navbar.interface';
-import { IconSwitcher } from '../IconSwitcher/IconSwitcher';
-import { Link } from 'react-router-dom';
+import React, { FC, useState, Dispatch, SetStateAction } from "react";
+import { Row, Col, Drawer, Badge } from "antd";
+import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
+import "./Navbar.less";
+import useBreakpoint from "antd/lib/grid/hooks/useBreakpoint";
+import { INavbarLink } from "./navbar.interface";
+import { IconSwitcher } from "../IconSwitcher/IconSwitcher";
+import { Link, useHistory } from "react-router-dom";
 
-export const Navbar: FC<{
-  textColor: string,
-  links: Array<INavbarLink>
-  linkColor?: {
-    active: string
-    normal: string
-  }
-  active?: number
-  cartCount?: number
-}> = (props) => {
-
-  const { textColor, links } = props;
-
-  const { xl, md } = useBreakpoint();
-  const [ menuOpen, setMenuOpen ] = useState<boolean>(false);
-
+const MenuItems: FC<{
+  setOpen: Dispatch<SetStateAction<boolean>>;
+  alternate: boolean;
+}> = ({ alternate, setOpen }) => {
+  const history = useHistory();
 
   return (
-    <div style={{
-      zIndex: 99
-    }}>
-    {!xl && menuOpen 
-      && <Drawer
-          bodyStyle={{
-            backgroundColor: '#111'
-          }}
-          closable={false}
-          width='80%'
-          placement='right'
-          visible={menuOpen}
-          onClose={() => {
-            setMenuOpen(false)
-          }}
-        >
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            height: '100vh',
-            width: '100%'
-          }}
-        >
-          <ul style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center'
-          }}>
-            {
-              links.map(item => {
-                return <li style={{
-                  cursor: 'pointer',
-                  margin: '1em 0',
-                  color: '#eee'
-                }}>
-                  <Link to={item.to} style={{color: '#eee'}}>
-                  {item.name}
-                  </Link>
-                </li>
-              })
-            }
-          </ul>
+    <ul className={`m-menuItems__content ${alternate ? "-alternate" : ""}`}>
+      <li
+        onClick={() => {
+          history.push("/about");
+        }}
+      >
+        about
+      </li>
+      <li
+        onClick={() => {
+          history.push("/services");
+        }}
+      >
+        services
+      </li>
+      <li
+        onClick={() => {
+          setOpen(false);
+          history.push("/store");
+        }}
+      >
+        store
+      </li>
+      <li
+        onClick={() => {
+          setOpen(false);
+          history.push("/store/cart");
+        }}
+      >
+        cart
+      </li>
+    </ul>
+  );
+};
 
-          <ul style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center'
-          }}>
-            <li style={{
-                  cursor: 'pointer',
-                  margin: '1em 0',
-                  color: '#eee'}}
-                >
-                  <Link to='/store/cart' style={{color: '#eee'}}>
-                  cart
-                  </Link>
-                </li>
-          </ul>
-          
-        </div>
-      </Drawer>}
-    <Row 
-      align='middle' 
-      style={{
-        height: '132px',
-        color: textColor
-      }}
-      justify='space-between'
-    >
-      <Col span={!md ? 8 : 4} style={{
-        fontSize: (xl && '36px') || (md && '30px') || '24px',
-        fontFamily: 'Cormorant',
-        fontWeight: 300,
-        lineHeight: 3,
-        textAlign: 'center',
-        ...(menuOpen ? {color: '#eee'} : {})
-      }}>nolar</Col>
-      { xl && <Col span={16}>
-        <Row 
-          justify='center'
-          align='middle'
+// const FullMenu: FC = () => {};
+
+export const Navbar: FC<{
+  alternate?: boolean;
+  active?: number;
+  cartCount?: number;
+}> = ({ alternate }) => {
+  const history = useHistory();
+  const { lg } = useBreakpoint();
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+
+  return (
+    <>
+      <div className="o-navigation__wrapper">
+        <div
+          className={`m-navigation__content ${
+            alternate && !menuOpen ? "-alternate" : ""
+          }`}
         >
-          <ul>
-            {
-              links.map((item, index) => {
-                return <li key={index} style={{
-                  cursor: 'pointer',
-                  ...props.linkColor && {color: props.active === index ? props.linkColor.active : props.linkColor.normal}
-                }}>
-                  <Link to={item.to} style={{
-                  ...props.linkColor && {color: props.active === index ? props.linkColor.active : props.linkColor.normal}
-                }}>
-                  {item.name}
-                  </Link>
-                </li>
-              })
-            }
-          </ul>
-        </Row>
-      </Col>}
-      {
-      <Col span={4}>
-        <Row 
-          justify='center'
-          align='middle'
+          <h2
+            onClick={() => {
+              history.push("/");
+            }}
           >
-           { xl ? 
-           <ul>
-              <li style={{
-                  cursor: 'pointer',
-                  ...props.linkColor && {color: props.active === 4 ? props.linkColor.active : props.linkColor.normal}
-                  }}>
-                    <Badge count={props.cartCount}>
-                    <Link 
-                      to='/store/cart' 
-                      style={{
-                      ...props.linkColor && {color: props.active === 4 ? props.linkColor.active : props.linkColor.normal}
-                    }}>
-                      cart
-                    </Link>
-                    </Badge>
-                </li>
-            </ul>
-            :
+            nolar
+          </h2>
+          {lg ? (
+            <div className="o-menuItemsInline__wrapper">
+              <MenuItems
+                setOpen={setMenuOpen}
+                alternate={!!(alternate && !menuOpen)}
+              />
+            </div>
+          ) : (
             <IconSwitcher
+              toggler={menuOpen}
               icons={[
                 <MenuOutlined
                   style={{
-                    ...(menuOpen ? {color: '#eee'} : {})
+                    color: alternate ? "#20274D" : "#fff",
                   }}
                   onClick={() => {
-                    setMenuOpen(true)
+                    setMenuOpen(true);
                   }}
                 />,
                 <CloseOutlined
-                  style={{
-                    ...(menuOpen ? {color: '#eee'} : {})
-                  }}
+                  color="#fff"
                   onClick={() => {
-                    setMenuOpen(false)
+                    setMenuOpen(false);
                   }}
-                />
+                />,
               ]}
-              toggler={menuOpen}
-            />
-            }
-          </Row>
-      </Col>
-      }
-    </Row>
-    </div>
-  )
-}
+            ></IconSwitcher>
+          )}
+        </div>
+      </div>
+      <div className={`o-navigation__fullscreen ${!menuOpen ? "-d-none" : ""}`}>
+        <MenuItems
+          setOpen={setMenuOpen}
+          alternate={!!(alternate && !menuOpen)}
+        />
+      </div>
+    </>
+  );
+};

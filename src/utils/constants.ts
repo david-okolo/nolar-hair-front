@@ -1,26 +1,30 @@
-export const backendUrl = 'https://nolarhair.com.ng/api';
-export const backendStaticUrl = 'https://nolarhair.com.ng';
+export const backendUrl = "https://nolarhair.com.ng/api";
+export const backendStaticUrl = "https://nolarhair.com.ng";
 
 export const DEFAULT_HEADERS = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
+  "Content-Type": "application/json",
+  Accept: "application/json",
 };
 
 export const links = [
   {
-    name: 'about',
-    to: '/about'
+    name: "home",
+    to: "/",
   },
   {
-    name: 'services',
-    to: '/services'
+    name: "about",
+    to: "/about",
   },
   {
-    name: 'store',
-    to: '/store'
+    name: "services",
+    to: "/services",
   },
   {
-    name: 'check booking',
-    to: '/booking'
-  }
-]
+    name: "store",
+    to: "/store",
+  },
+  {
+    name: "check booking",
+    to: "/booking",
+  },
+];
