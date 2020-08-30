@@ -1,11 +1,9 @@
 import React, { FC, useState, Dispatch, SetStateAction } from "react";
-import { Row, Col, Drawer, Badge } from "antd";
 import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
 import "./Navbar.less";
 import useBreakpoint from "antd/lib/grid/hooks/useBreakpoint";
-import { INavbarLink } from "./navbar.interface";
 import { IconSwitcher } from "../IconSwitcher/IconSwitcher";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const MenuItems: FC<{
   setOpen: Dispatch<SetStateAction<boolean>>;

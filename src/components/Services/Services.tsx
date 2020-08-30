@@ -1,21 +1,8 @@
 import React, { FC } from "react";
 import { Navbar } from "../Navbar/Navbar";
-import { links } from "../../utils/constants";
 import { Footer } from "../Footer/Footer";
 import "./styles.less";
-import { Row, Col } from "antd";
-import { CustomSection } from "../CustomSection";
 
-import loss from "../../images/services/1.jpg";
-import product from "../../images/services/2.jpg";
-import useBreakpoint from "antd/lib/grid/hooks/useBreakpoint";
-import { ImageGrid } from "../ImageGrid/ImageGrid";
-
-// tile images
-import tileOne from "../../images/tiles/tile-1.jpg";
-import tileTwo from "../../images/tiles/tile-2.jpg";
-import tileThree from "../../images/tiles/tile-3.jpg";
-import tileFour from "../../images/tiles/tile-4.jpg";
 import { ServiceCard } from "../Main/ServiceCard";
 import consultation from "../../images/services/1.jpg";
 import barbing from "../../images/services/2.jpg";
@@ -24,8 +11,6 @@ import products from "../../images/services/4.jpg";
 import pedicure from "../../images/services/5.jpg";
 
 export const Services: FC<{}> = (props) => {
-  const { xs } = useBreakpoint();
-
   return (
     <>
       <Navbar alternate active={2} />

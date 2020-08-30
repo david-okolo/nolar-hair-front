@@ -3,7 +3,6 @@ import { Switch, Route, useRouteMatch } from "react-router-dom";
 import Display from "./Display";
 import { Cart } from "./Cart";
 import { Navbar } from "../Navbar/Navbar";
-import { links } from "../../utils/constants";
 import { Footer } from "../Footer/Footer";
 import { Product } from "./store.interface";
 import { useSelector, useDispatch } from "react-redux";

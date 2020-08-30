@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import { Navbar } from "../Navbar/Navbar";
-import { links } from "../../utils/constants";
 import { Footer } from "../Footer/Footer";
 // import { Row, Col } from 'antd';
 import { CustomSection } from "../CustomSection";

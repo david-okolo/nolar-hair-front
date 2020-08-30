@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import { Row, Col, Card } from "antd";
 import "./styles.less";
 import { Product } from "../Store/store.interface";
 import { useSelector, useDispatch } from "react-redux";
@@ -38,7 +37,7 @@ export const Shop: FC = () => {
 
               return (
                 <div className="o-shop__item">
-                  <img src={"http://nolarhair.com.ng" + item.imageUrl} alt="" />
+                  <img src={backendStaticUrl + item.imageUrl} alt="" />
                   <div className="a-shop__itemName">
                     <p>{item.name}</p>
                   </div>
