@@ -50,7 +50,7 @@ export const Services: FC<{}> = (props) => {
               <article>
                 <h4>Nolar Plus</h4>
                 <p>
-                  IIn addition to trichology service, Nolar offers other hair
+                  In addition to trichology service, Nolar offers other hair
                   services in the following with competent and professionals in
                   attendance: <br />
                   Styling <br />

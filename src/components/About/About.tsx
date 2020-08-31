@@ -108,7 +108,7 @@ export const About: FC<{}> = (props) => {
             <h4
               style={{ textAlign: "left", fontSize: "36px", lineHeight: 1.4 }}
             >
-              Meet our <br /> trichiologist
+              Meet Your <br /> trichiologist
             </h4>
             <p
               style={{
