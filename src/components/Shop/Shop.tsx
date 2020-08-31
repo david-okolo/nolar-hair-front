@@ -36,7 +36,7 @@ export const Shop: FC = () => {
               const isAdded = cart.findIndex(({ id }) => id === item.id) >= 0;
 
               return (
-                <div className="o-shop__item">
+                <div key={item.id} className="o-shop__item">
                   <img src={backendStaticUrl + item.imageUrl} alt="" />
                   <div className="a-shop__itemName">
                     <p>{item.name}</p>
