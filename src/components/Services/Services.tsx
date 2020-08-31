@@ -18,9 +18,11 @@ export const Services: FC<{}> = (props) => {
         <article>
           <h3>Services</h3>
           <p>
-            We offer a wide range of services ranging from hair loss
-            consultantions to styling, braiding, supplements and equipments.
-            Whatever your hair needs are we’ll be happy to help.
+            We offer a wide range of services from hair loss consultation to
+            general hair wellness. Others include styling, braiding, barbing,
+            hair supplements and quality products to achieve your hair goals.
+            Whatever your hair needs are, be rest assured that we will be happy
+            to help.
           </p>
         </article>
       </div>
@@ -29,14 +31,14 @@ export const Services: FC<{}> = (props) => {
           <ServiceCard
             article={
               <article>
-                <h4>Hair Restoration & analysis</h4>
+                <h4>Hair Loss Analysis & Restoration</h4>
                 <p>
-                  Consultation plus Hair analysis of male and female pattern
-                  baldness, receding hairline and other hair loss are analysed
-                  by our competent Trichologist and state of the art intelligent
-                  machine. The outcome result leads to the type of
-                  recommendation and suggestions on the hair treatment plans or
-                  protocols for our clients.
+                  Loss of hair is one of the most common problems seen by the
+                  Trichologist. In order to establish the root cause of the hair
+                  loss, our Trichologist will take you through the hair protocol
+                  using the state of the art intelligent machine to analyse your
+                  hair and scalp and then work out the best regimens that’s
+                  suitable for your hair loss.
                 </p>
               </article>
             }
@@ -48,12 +50,13 @@ export const Services: FC<{}> = (props) => {
               <article>
                 <h4>Nolar Plus</h4>
                 <p>
-                  Nolar in addition to Hairloss Consultation & Treatment also
-                  offers other hair services with competent and professionals in
-                  attendance for: <br />
+                  IIn addition to trichology service, Nolar offers other hair
+                  services in the following with competent and professionals in
+                  attendance: <br />
                   Styling <br />
                   Braiding <br />
                   Barbing <br />
+                  Nails
                 </p>
               </article>
             }
@@ -80,10 +83,11 @@ export const Services: FC<{}> = (props) => {
               <article>
                 <h4>Hair Products</h4>
                 <p>
-                  Nolar in addition to Hairloss Consultation & Treatment also
-                  offers other hair services with competent and professionals in
-                  attendance for: Quality hair products & supplements are also
-                  available on our store for our clients hair wellness.
+                  Our tried, tested and trusted products, Design Essentials are
+                  one of the best hair care products used at Nolar to preserve
+                  the integrity, beauty and style of our clientele’s hair. This
+                  is because it’s the most innovative and healthy hair care
+                  solutions. At Nolar, we give our clientele only the best.
                 </p>
               </article>
             }

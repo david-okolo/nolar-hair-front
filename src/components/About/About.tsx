@@ -118,14 +118,15 @@ export const About: FC<{}> = (props) => {
                 fontWeight: 400,
               }}
             >
-              Tolu Role is a trained and certified Trichologist. She's a member
-              of International Association of Trichologists. She had a first
-              degree in Architecture from Ogun State Polytechnic Abeokuta
-              before. She worked with National Youth Service Corps for about 21
-              years before she decided to go for Trichology course. Tolu
-              specialises in male and female hair loss. An educator and trainer
-              in hair loss management and wellness. Her mission is to help as
-              many hair loss sufferers as possible.{" "}
+              Tolu Role is a certified and registered Trichologist. She’s a
+              member of the International Association of Trichologists
+              (Australia). She had a first degree in Architecture from Ogun
+              State Polytechnic Abeokuta, Ogun State, Nigeria. She worked with
+              National Youth Service Corps (NYSC) for about 21 years before she
+              decided to study trichology course. Tolu specialises in all type
+              of hair loss. An educator and trainer in hair loss management and
+              wellness. Her mission is to provide holistic solutions to as many
+              hair loss sufferers as possible.
             </p>
           </>
         }

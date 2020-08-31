@@ -74,7 +74,7 @@ function Home() {
                 Excessive scalp itching <br />
                 If you are experiencing any of the above hair problems, it’s
                 time to seek the expertise of a Trichologist without further
-                hesitation. “A stitch on time saves nine.”
+                hesitation. “A stitch in time saves nine.”
               </p>
             </div>
           </div>

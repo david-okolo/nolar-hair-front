@@ -15,8 +15,8 @@ export const Process: FC = (props) => {
         <article>
           <h3 style={{ fontFamily: "Cormorant" }}>Our Process</h3>
           <p>
-            Every hair recovery journey with Nolar goes through a pre-defined
-            process.
+            Every hair recovery journey with Nolar goes through a thorough
+            protocol.
             <br />
             <br />
             Consulation <br />

@@ -20,11 +20,12 @@ export const Header: FC<{
           <h1>Hair Recovery Made Simple</h1>
           <p>
             We believe your hair deserves the best, and as such we can assure
-            that with our curated regimens, Hair loss, baldness, scaling,
-            itching, excessive oilness you name it, will be things of the past.
-            Book a consultation with our licensed haircare practicioner
-            (Association of Trichiology) and lets get you back to the beautiful
-            hair you’re younger self would be proud of.
+            that with our curated regiments, hair loss, baldness, scaling,
+            itching, breakage etc, will be things of the past.
+            <br /> Book a consultation with our certified and registered
+            Trichologist and let’s get you back to the most balanced hair and
+            scalp conditions that give you healthy, vibrant shine and easy to
+            maintain hair.
           </p>
           <div
             className="a-header__button"
