@@ -48,13 +48,13 @@ export const About: FC<{}> = (props) => {
                 fontWeight: 400,
               }}
             >
-              Nolar hair is a luxurious salon designed to meet your hair needs.
-              Hair loss is one of the most common hair problems faced by
-              individuals, in particular the older adults. We offer hair
+              Nolar is a trichology clinic designed to meet your hair loss
+              problems. Hair loss is one of the most common hair problems faced
+              by individuals, in particular the older adults. We offer hair
               analysis and restoration services to resolve hair loss issues
               effectively. We also offer essential hair care products and
-              services to keep you looking gorgeous. At Nolar hair, we offer you
-              more than a service, and it is always our pleasure to give you a
+              services for your hair wellness. At Nolar hair, we offer you more
+              than a service, and it is always our pleasure to give you a
               stunning look that will turn heads wherever you go. Welcome!
             </p>
           </>
