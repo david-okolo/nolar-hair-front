@@ -54,8 +54,8 @@ function Home() {
                 lead to changes in your body as a whole. At the same time, when
                 your hormones are in a balanced stage, you can enjoy good
                 health, healthy hair and a feeling of well-being. Therefore, one
-                of the things that causes hairless can be attributed to hormonal
-                imbalance.
+                of the things that causes hair loss can be attributed to
+                hormonal imbalance.
               </p>
             </div>
             <div className="m-faq__item">

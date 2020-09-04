@@ -98,9 +98,9 @@ export const Services: FC<{}> = (props) => {
               <article>
                 <h4>Manuicure & Pedicure</h4>
                 <p>
-                  Manicure & Pedicure are a must have because they complement
-                  the look and feel of our clients. Nolar offers these services
-                  too in addition to Hairloss Consultation & Treatment.
+                  Manicure & Pedicure is recommended for our esteemed clients
+                  because it complements the look and feel. Nolar offers this
+                  service with our experienced nail technician in attendance.
                 </p>
               </article>
             }
